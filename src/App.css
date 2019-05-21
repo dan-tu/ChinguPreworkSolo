@@ -3,7 +3,6 @@
 }
 
 html, body {
-  height: 100%;
   background-color: lightskyblue;
 }
 
@@ -50,17 +49,10 @@ html, body {
 
 .search-container {
   padding-top: 20px;
+  background-color: lightskyblue;
 }
 
 .search-bar {
   padding-top: 20px;
   padding-bottom: 20px;
-}
-
-.search-results {
-  margin: 0px auto;
-}
-
-.table-header {
-  background-color: orangered;
 }

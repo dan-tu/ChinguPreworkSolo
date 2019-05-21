@@ -1,5 +1,6 @@
 import React from 'react';
 import '../App.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 class SearchPanel extends React.Component {
     constructor(props) {
@@ -46,24 +47,26 @@ class SearchPanel extends React.Component {
         let meteorites = this.parseData(this.props.meteorites);
 
         return (        
-            <table className='search-results'>
-                <thead className='table-header'>
-                    <tr>
-                        <th>Name</th>
-                        <th>ID</th>
-                        <th>Name Type</th>
-                        <th>Rec Class</th>
-                        <th>Mass(g)</th>
-                        <th>Fall</th>
-                        <th>Year</th>
-                        <th>Coordinates (Lat, Long)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {meteorites}
-                </tbody>
-            </table>)
-        ;
+            <div className='container-fluid'>
+                <table className='table table-dark'>
+                    <thead>
+                        <tr>
+                            <th scope='col'>Name</th>
+                            <th scope='col'>ID</th>
+                            <th scope='col'>Name Type</th>
+                            <th scope='col'>Rec Class</th>
+                            <th scope='col'>Mass(g)</th>
+                            <th scope='col'>Fall</th>
+                            <th scope='col'>Year</th> 
+                            <th scope='col'>Coordinates (Lat, Long)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {meteorites}
+                    </tbody>
+                </table>
+            </div>
+        );
     }
 }
 
