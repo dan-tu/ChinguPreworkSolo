@@ -31,3 +31,20 @@
     transform: rotate(360deg);
   }
 }
+
+.banner {
+  background-color: black;
+  color: lightblue;
+  line-height: 3em;
+  margin: 0 0 0 0;
+}
+
+.search-container {
+  background-color: lightskyblue;
+  padding-top: 20px;
+}
+
+.search-bar {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
