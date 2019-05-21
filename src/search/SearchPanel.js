@@ -3,6 +3,8 @@ import '../App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 class SearchPanel extends React.Component {
+    PAGE_SIZE = 30;
+
     constructor(props) {
         super(props);
 
@@ -12,8 +14,6 @@ class SearchPanel extends React.Component {
             page: 0
         }
     }
-
-    PAGE_SIZE = 30;
 
     // Parse props for meteorites to load
     parseData(meteorites) {
@@ -48,23 +48,25 @@ class SearchPanel extends React.Component {
 
         return (        
             <div className='container-fluid'>
-                <table className='table table-dark'>
-                    <thead>
-                        <tr>
-                            <th scope='col'>Name</th>
-                            <th scope='col'>ID</th>
-                            <th scope='col'>Name Type</th>
-                            <th scope='col'>Rec Class</th>
-                            <th scope='col'>Mass(g)</th>
-                            <th scope='col'>Fall</th>
-                            <th scope='col'>Year</th> 
-                            <th scope='col'>Coordinates (Lat, Long)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {meteorites}
-                    </tbody>
-                </table>
+                <div className='row mx-5'>
+                    <table className='table table-dark rounded-lg'>
+                        <thead>
+                            <tr id='table-header'>
+                                <th className='no-top-border'>Name</th>
+                                <th className='no-top-border'>ID</th>
+                                <th className='no-top-border'>Name Type</th>
+                                <th className='no-top-border'>Rec Class</th>
+                                <th className='no-top-border'>Mass(g)</th>
+                                <th className='no-top-border'>Fall</th>
+                                <th className='no-top-border'>Year</th> 
+                                <th className='no-top-border'>Coordinates (Lat, Long)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {meteorites}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         );
     }

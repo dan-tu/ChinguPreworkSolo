@@ -52,7 +52,6 @@ html, body {
   background-color: lightskyblue;
 }
 
-.search-bar {
-  padding-top: 20px;
-  padding-bottom: 20px;
+.no-top-border {
+  border-top: none !important;
 }
