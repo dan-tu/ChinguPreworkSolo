@@ -8,7 +8,7 @@ class SearchBar extends React.Component {
                 <form className='form-inline justify-content-center'>
                     <div className='form-group'>
                         <input type="text" className='form-control' placeholder="Search Meteorites"></input>
-                        <button type='submit' class='btn btn-primary ml-2'>Search</button>
+                        <button type='submit' className='btn btn-primary ml-2'>Search</button>
                     </div>
                 </form>
             </div>
