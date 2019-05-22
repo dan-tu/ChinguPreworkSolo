@@ -11,7 +11,8 @@ class Search extends React.Component {
 
         this.state = {
             meteorites: [],
-            pages: 1
+            pages: 1,
+            search: ''
         };
 
         // Implement page load when reach bottom
@@ -26,6 +27,7 @@ class Search extends React.Component {
         }
 
         this.loadMeteorites = this.loadMeteorites.bind(this);
+        this.searchMeteorites = this.searchMeteorites.bind(this);
     }
 
     
@@ -33,10 +35,10 @@ class Search extends React.Component {
         this.loadMeteorites();
     }
 
-    // Fetch meteorites and set state
+    // Fetch meteorites and set state depending on page
     loadMeteorites() {
         fetch('https://data.nasa.gov/resource/gh4g-9sfh.json?$order=name%20ASC&$limit=' + this.PAGE_SIZE 
-            + '&$offset=' + (this.state.pages - 1) * this.PAGE_SIZE).then((res) => {
+        + '&$offset=' + (this.state.pages - 1) * this.PAGE_SIZE + this.state.search).then((res) => {
             return res.json();
         }).then((data) => {
             this.setState({
@@ -45,10 +47,24 @@ class Search extends React.Component {
         });
     }
 
+    // Searches (case insensitive) for meteorites with the given searchtext and updates the results
+    searchMeteorites(searchtext) {
+        let searchQuery = "&$where=lower(name) like '%25" + searchtext.toLowerCase() + "%25'";
+
+        // Reset meteorite results then fetch new query
+        this.setState({
+            search: searchQuery,
+            pages: 1,
+            meteorites: []
+        }, () => {
+            this.loadMeteorites();
+        });
+    }
+
     render() {
         return (
             <div className='search-container'>
-                <SearchBar></SearchBar>
+                <SearchBar search={this.searchMeteorites}></SearchBar>
                 <SearchPanel meteorites={this.state.meteorites}></SearchPanel>
             </div>
         );
